@@ -21,8 +21,8 @@ except ImportError as exc:
     sys.exit(0)
 
 logging.basicConfig(filename='example.log',
-    level=logging.DEBUG,
-    format="%(asctime)s %(name)s %(message)s")
+                    level=logging.DEBUG,
+                    format="%(asctime)s %(name)s %(message)s")
 LOGGER = logging.getLogger(__name__)
 
 
@@ -50,13 +50,15 @@ class Settings:
             description="Arduino TestSuite commandline arguments:",
             epilog="Report bugs to jeroendoggen@gmail.com.")
         parser.add_argument("-p", metavar="port",
-          help="Set the name of the serial port")
-        parser.add_argument('-d', metavar='board',
-          help='Set the name of the board as defined in boards.txt')
+                            help="Set the name of the serial port")
+        parser.add_argument("-d", metavar="board",
+                            help="Set the name of the board as " +
+                                 "defined in boards.txt")
         parser.add_argument("-f", metavar="file",
-          help="Select the inputfile containing the requested tests")
+                            help="Select the inputfile containing " +
+                                 "the requested tests")
         parser.add_argument("-b", metavar="baudrate",
-          help="Set the baudrate of the serial port")
+                            help="Set the baudrate of the serial port")
         args = parser.parse_args()
         if (args.p is not None):
             self.serial_port = args.p
