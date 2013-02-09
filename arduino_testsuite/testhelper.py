@@ -20,7 +20,8 @@ def timed_cmd(command, timeout):
     start = datetime.datetime.now()
     working_dir = os.path.dirname(sys.executable)
     process = subprocess.Popen(cmd, stdout=subprocess.PIPE,
-      stderr=subprocess.PIPE, cwd=os.path.join(working_dir, "Scripts"))
+                               stderr=subprocess.PIPE,
+                               cwd=os.path.join(working_dir, "Scripts"))
 
     while process.poll() is None:
         now = datetime.datetime.now()
